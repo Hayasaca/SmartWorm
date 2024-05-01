@@ -189,9 +189,6 @@ generate
 
 #NO HANG UP COMMAND will create a hidden process for runing the generated script file
 nohup /home/$my/Desktop/$filename > outputvirus 2>&1 & 
-
-"quit"
-break
      
 echo invalid choice
       esac
